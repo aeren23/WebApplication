@@ -1,0 +1,25 @@
+﻿@model KitapTuru
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-5">
+        <div class=" row pb-3">
+            <h2 class="text-primary">
+                Kitap Türü Sil
+            </h2>
+            <hr>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Ad" class="p-0"></label>
+            <input asp-for="Ad" disabled class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Kitap Türü Sil</button>
+
+        <a asp-controller="KitapTuru" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">Kitap Türlerine Geri Dön</a>
+
+    </div>
+
+
+</form>

@@ -1,0 +1,31 @@
+﻿@model Kiralama
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-5">
+        <div class=" row pb-3">
+            <h2 class="text-primary">
+                Kiralama Kayıt Sil
+            </h2>
+            <hr>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="OgrenciId" class="p-0"></label>
+            <input asp-for="OgrenciId" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="KitapId" class="p-0"></label>
+            <select asp-for="KitapId" disabled asp-items="ViewBag.KitapList" class="form-select"></select>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Kiralama Kayıt Sil</button>
+
+        <a asp-controller="Kiralama" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">Kiralamalara Geri Dön</a>
+
+    </div>
+
+
+</form>

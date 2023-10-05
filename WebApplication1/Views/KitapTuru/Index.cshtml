@@ -1,0 +1,58 @@
+﻿@model List<KitapTuru>
+
+@if(TempData["basarili"] != null)
+{
+    <span style=" border-radius:10px; display:flex; justify-content:center; background-color:lightgray; width:100%; margin:0;"><h4 style="color:green">@TempData["basarili"]</h4></span>
+}
+
+<div class="container">
+    <div class="row pt-3 pb-4">
+        <div>
+            <h1>Kitap Türleri</h1>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Kitap Türü
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var kitapTuru in Model)
+            {
+                <tr>
+                    <td>@kitapTuru.Id</td>
+                    <td>@kitapTuru.Ad</td>
+                    <td>
+                        <a asp-controller="KitapTuru" asp-action="Guncelle" asp-route-id="@kitapTuru.Id" type="button" class="btn btn-success" style="width:240px">Güncelle</a>
+                    </td>
+                    <td>
+                        <a asp-controller="KitapTuru" asp-action="Sil" asp-route-id="@kitapTuru.Id" type="button" class="btn btn-danger" style="width:240px">Sil</a>
+                    </td>
+                </tr>
+                
+            }
+        </tbody>
+    </table>
+
+    <div class="row pt-3 pb-2">
+        <div>
+            <a asp-controller="KitapTuru" asp-action="Ekle" class="btn btn-lg btn-primary">
+                Yeni Kitap Türü Oluştur
+            </a>
+        </div>  
+    </div>
+</div>

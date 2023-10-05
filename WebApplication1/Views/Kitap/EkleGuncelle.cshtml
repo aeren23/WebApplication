@@ -1,0 +1,83 @@
+﻿@model Kitap
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="ResimUrl" hidden />
+    <div class="row">
+        <div class="col-10">
+
+            <div class="border p-3 mt-5">
+                <div class=" row pb-3">
+                    <h2 class="text-primary">
+                        @(Model == null ? "Kitap Ekle" : "Kitap Güncelle")
+                    </h2>
+                    <hr>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="KitapAdi" class="p-0"></label>
+                    <input asp-for="KitapAdi" class="form-control" />
+                    <span asp-validation-for="KitapAdi" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="KitapTuruId" class="p-0"></label>
+                    <select asp-for="KitapTuruId" asp-items="ViewBag.KitapTuruList" class="form-select"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Tanim" class="p-0"></label>
+                    <input asp-for="Tanim" class="form-control" />
+                    <span asp-validation-for="Tanim" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Yazar" class="p-0"></label>
+                    <input asp-for="Yazar" class="form-control" />
+                    <span asp-validation-for="Yazar" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Fiyat" class="p-0"></label>
+                    <input asp-for="Fiyat" class="form-control" />
+                    <span asp-validation-for="Fiyat" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ResimUrl" class="p-0"></label>
+                    <input type="file" name="file" class="form-control" />
+                </div>
+
+                @if (Model != null)
+                {
+                    <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Güncelle</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Kitap Ekle</button>
+                }
+
+                <a asp-controller="Kitap" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">Kitaplara Geri Dön</a>
+
+            </div>
+
+        </div>
+
+        <div class="col-2">
+            @if (Model != null)
+            {
+                <img src="@Model.ResimUrl" width="100%" style="border-radius:7px; margin-top:50px; border:1px solid #bbb9b9;"/>
+            }
+        </div>
+    </div>
+
+    
+
+
+</form>
+
+
+@* @section Scripts{
+    @{
+        <partial name="|ValidationScriptsPartial"/>
+    }
+} *@

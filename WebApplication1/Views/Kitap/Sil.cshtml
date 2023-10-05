@@ -1,0 +1,40 @@
+﻿@model Kitap
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-5">
+        <div class=" row pb-3">
+            <h2 class="text-primary">
+                Kitap Sil
+            </h2>
+            <hr>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="KitapAdi" class="p-0"></label>
+            <input asp-for="KitapAdi" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tanim" class="p-0"></label>
+            <input asp-for="Tanim" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Yazar" class="p-0"></label>
+            <input asp-for="Yazar" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Fiyat" class="p-0"></label>
+            <input asp-for="Fiyat" disabled class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Kitap Sil</button>
+
+        <a asp-controller="Kitap" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">Kitaplara Geri Dön</a>
+
+    </div>
+
+
+</form>
